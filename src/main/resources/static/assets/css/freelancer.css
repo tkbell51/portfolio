@@ -70,6 +70,13 @@ hr.contact:after{
   background-color:white;
   color: #1C2633;
 }
+hr.projectStar{
+  border-color: #1C2633;
+}
+hr.projectStar:after{
+  background-color: white;
+  color:#F66733;
+}
 .img-centered {
   margin: 0 auto;
 }

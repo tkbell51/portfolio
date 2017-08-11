@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Portfolio Admin</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+</head>
+<body>
+<div class="container">
+    <h1>Portfolio Admin Page</h1>
+</div>
+<form class="form-inline" action="/createProject" method="post">
+
+    <div class="form-group">
+        <input placeholder="Title" type="text" name="title" required="required"/>
+    </div>
+    <div class="form-group">
+        <input placeholder="Description" type="text" name="description" required="required"/>
+
+    </div>
+    <div class="form-group">
+        <input placeholder="Language" type="text" name="project_language" required="required"/>
+    </div>
+    <div class="form-group">
+        <input placeholder="URL" type="text" name="url" required="required"/>
+    </div>
+    <div class="form-group">
+        <input placeholder="Project Snapshot" type="text" name="projectIMG" required="required"/>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Add"/>
+</form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div th:each="projects: ${projects}" class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title" th:text="${projects.title}"></h3>
+                </div>
+
+
+                <div class="panel-body">
+                    <img th:src="${projects.projectIMG}" th:alt="${projects.title}">
+                    <p th:text="${projects.description}"></p>
+                    <p th:text="${projects.project_language}"></p>
+                    <a th:href="${projects.url}" th:text="${projects.title}"></a>
+                    <!--<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
