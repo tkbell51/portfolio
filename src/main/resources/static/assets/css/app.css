@@ -2,8 +2,8 @@
     width: 30%;
 }
 .portSection {
-    background-image: url("../img/header.jpg");
     background-size: cover;
+    background: url("../img/header.jpg");
 }
 .portTitle{
     color: #F66733;

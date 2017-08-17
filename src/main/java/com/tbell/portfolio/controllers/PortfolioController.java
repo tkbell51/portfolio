@@ -21,10 +21,16 @@ public class PortfolioController {
 
     @RequestMapping("/")
     public String index(Model model){
-            List<Project> allProjects = repo.findAll();
-            model.addAttribute("projects", allProjects);
+    Iterable<Project> gabble = repo.findByProjectRole(1);
+
+    model.addAttribute("firstProject", gabble);
+    Iterable<Project> projects = repo.findByProjectRole(2);
+    model.addAttribute("projects", projects);
+    Iterable<Project> lastProject = repo.findByProjectRole(3);
+    model.addAttribute("lastProject", lastProject);
         return "index";
     }
+
 
     @RequestMapping("/admin")
     public String admin(Model model) {

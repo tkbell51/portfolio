@@ -1,12 +1,21 @@
 package com.tbell.portfolio.models;
 
+import com.tbell.portfolio.interfaces.ProjectRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Project {
+    @Autowired
+    ProjectRepository repo;
+
+
     private long id;
     private String title;
     private String description;
     private String project_language;
     private String url;
     private String projectIMG;
+    private int project_role;
+    private String project_date;
 
     public Project() {}
 
@@ -65,5 +74,21 @@ public class Project {
 
     public void setProjectIMG(String projectIMG) {
         this.projectIMG = projectIMG;
+    }
+
+    public String getProject_date() {
+        return project_date;
+    }
+
+    public void setProject_date(String project_date) {
+        this.project_date = project_date;
+    }
+
+    public int getProject_role() {
+        return project_role;
+    }
+
+    public void setProject_role(int project_role) {
+        this.project_role = project_role;
     }
 }

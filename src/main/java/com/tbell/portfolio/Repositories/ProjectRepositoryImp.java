@@ -24,8 +24,8 @@ public class ProjectRepositoryImp implements ProjectRepository {
 
     }
     @Override
-    public List<Project> findOneByTitle (String title) {
-        return jdbcTemplate.query("SELECT * FROM project WHERE title = ?", new ProjectMapper(), title);
+    public List<Project> findByProjectRole (int projectRole) {
+        return jdbcTemplate.query("SELECT * FROM project WHERE project_role = ?", new ProjectMapper(), projectRole);
     }
 
     @Override
@@ -44,8 +44,9 @@ public class ProjectRepositoryImp implements ProjectRepository {
             Project project = new Project(resultSet.getInt("id"),
                     resultSet.getString("title"),
                     resultSet.getString("description"),
-                    resultSet.getString("language"),
-                    resultSet.getString("url"));
+                    resultSet.getString("project_language"),
+                    resultSet.getString("url"),
+                    resultSet.getString("projectIMG"));
             return project;
         }
     }
